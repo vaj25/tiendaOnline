@@ -19,3 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // Rutas de productos
 Route::resource('productos', 'ProductoController');
+
+// Rutas de clientes
+Route::resource('clientes', 'ClienteController');
+
+// Rutas de carrito
+Route::resource('carritos', 'CarritoController');
+
+// Rutas de carrito_producto
+Route::resource('carrito-productos', 'CarritoProductoController');

@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Producto;
+use App\Models\Carrito;
 
-class ProductoController extends Controller
+class CarritoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-      return Producto::all();
+        //
     }
 
     /**
@@ -36,7 +36,14 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $carrito = new Carrito;
+
+      $carrito->id_cliente = $request->cliente;
+      $carrito->estado_carrito = true;
+
+      if ($carrito->save()) {
+        return response()->json(array('success' => true), 200);
+      }
     }
 
     /**
@@ -47,7 +54,8 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-      return Producto::where('id_producto', $id)->get();
+      $carrito = Carrito::where('id_carrito', $id)->get();
+      return $carrito;
     }
 
     /**

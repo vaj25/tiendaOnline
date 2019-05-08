@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Producto;
+use App\Models\CarritoProducto;
+use App\Models\Carrito;
 
-class ProductoController extends Controller
+class CarritoProductoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-      return Producto::all();
+      // 
     }
 
     /**
@@ -36,18 +37,50 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $carrito_producto = new CarritoProducto;
+
+      $carrito = Carrito::where('id_cliente', $request->cliente)
+                        ->where('estado_carrito', 1)->get();
+
+      $id_carrito = 0;
+      if ($carrito->count() > 0) {
+        $id_carrito = $carrito->first()->id_carrito;
+      } else {
+        $carrito = new Carrito;
+
+        $carrito->id_cliente = $request->cliente;
+        $carrito->estado_carrito = true;
+
+        $carrito->save();
+
+        $id_carrito = $carrito->id_carrito;
+      }
+      
+      $carrito_producto->id_carrito = $id_carrito;
+      $carrito_producto->id_producto = $request->producto;
+      $carrito_producto->cantidad_carrito_producto = $request->cantidad;
+
+      if ($carrito_producto->save()) {
+        return response()->json(array('success' => true), 200);
+      }
+
+      
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id_cliente
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_cliente)
     {
-      return Producto::where('id_producto', $id)->get();
+      $carrito = Carrito::where('id_cliente', $id_cliente)
+                        ->where('estado_carrito', 1)->first();
+
+      $carrito_producto = CarritoProducto::where('id_carrito', $carrito->id_carrito)->get();
+
+      return $carrito_producto;
     }
 
     /**

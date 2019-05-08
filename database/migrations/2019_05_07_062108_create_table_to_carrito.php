@@ -15,6 +15,7 @@ class CreateTableToCarrito extends Migration
     {
         Schema::create('to_carrito', function (Blueprint $table) {
             $table->bigIncrements('id_carrito');
+            $table->boolean('estado_carrito');
             $table->timestamps();
         });
     }

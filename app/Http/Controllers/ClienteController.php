@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Producto;
+use App\Models\Cliente;
 
-class ProductoController extends Controller
+class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-      return Producto::all();
+        //
     }
 
     /**
@@ -47,7 +47,7 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-      return Producto::where('id_producto', $id)->get();
+      return Cliente::where('id_cliente', $id)->get();
     }
 
     /**
