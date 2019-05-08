@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\CarritoProducto;
-use App\Models\Carrito;
+use App\Models\Factura;
 
-class CarritoProductoController extends Controller
+class FacturaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class CarritoProductoController extends Controller
      */
     public function index()
     {
-      // 
+        //
     }
 
     /**
@@ -37,50 +36,28 @@ class CarritoProductoController extends Controller
      */
     public function store(Request $request)
     {
-      $carrito_producto = new CarritoProducto;
+      $factura = new Factura();
 
-      $carrito = Carrito::where('id_cliente', $request->cliente)
-                        ->where('estado_carrito', 1)->get();
+      $factura->codigo_factura = '151186';
+      $factura->total_factura = $request->total;
+      $factura->subtotal_factura = $request->subtotal;
+      $factura->id_carrito = $request->carrito;
 
-      $id_carrito = 0;
-      if ($carrito->count() > 0) {
-        $id_carrito = $carrito->first()->id_carrito;
-      } else {
-        $carrito = new Carrito;
-
-        $carrito->id_cliente = $request->cliente;
-        $carrito->estado_carrito = true;
-
-        $carrito->save();
-
-        $id_carrito = $carrito->id_carrito;
-      }
-      
-      $carrito_producto->id_carrito = $id_carrito;
-      $carrito_producto->id_producto = $request->producto;
-      $carrito_producto->cantidad_carrito_producto = $request->cantidad;
-
-      if ($carrito_producto->save()) {
+      if ($factura->save()) {
         return response()->json(array('success' => true), 200);
       }
 
-      
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id_cliente
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_cliente)
+    public function show($id)
     {
-      $carrito = Carrito::where('id_cliente', $id_cliente)
-                        ->where('estado_carrito', 1)->first();
-
-      $carrito_producto = CarritoProducto::where('id_carrito', $carrito->id_carrito)->get();
-
-      return $carrito_producto;
+      
     }
 
     /**
@@ -114,8 +91,6 @@ class CarritoProductoController extends Controller
      */
     public function destroy($id)
     {
-      if (CarritoProducto::where('id_carrito_producto', $id)->delete()) {
-        return response()->json(array('success' => true), 200);
-      }
+        //
     }
 }

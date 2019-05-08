@@ -28,3 +28,6 @@ Route::resource('carritos', 'CarritoController');
 
 // Rutas de carrito_producto
 Route::resource('carrito-productos', 'CarritoProductoController');
+
+// Rutas de carrito_producto
+Route::resource('facturas', 'FacturaController');
