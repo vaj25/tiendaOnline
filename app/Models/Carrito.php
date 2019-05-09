@@ -14,7 +14,7 @@ class Carrito extends Model
 
   public function cliente()
   {
-    return $this->belongsTo(Cliente::class, 'id_cliente', 'id_cliente');
+    return $this->belongsTo(User::class, 'id_cliente');
   }
 
   public function carritoPruductos()

@@ -15,7 +15,7 @@ class ForeignTableToCarrito extends Migration
     {
         Schema::table('to_carrito', function (Blueprint $table) {
           $table->bigInteger('id_cliente')->unsigned();
-          $table->foreign('id_cliente')->references('id_cliente')->on('to_cliente');
+          $table->foreign('id_cliente')->references('id')->on('users');
         });
     }
 
