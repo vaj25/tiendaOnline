@@ -15,6 +15,8 @@ import Index from './components/Index'
 import auth from './auth'
 import router from './router'
 
+import TouchSpin from 'bootstrap-touchspin'
+
 window.Vue = require('vue');
 
 // Set Vue router

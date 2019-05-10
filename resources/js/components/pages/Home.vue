@@ -1,19 +1,106 @@
 <template>
-  <div class="container">
-    <div class="card card-default">
-      <div class="card-header">Bienvenue</div>
-      <div class="card-body">
-        <p>
-          American Main Barbary Coast scuttle hardtack spanker fire ship grapple jack code of conduct port. Port red
-          ensign Shiver me timbers provost salmagundi bring a spring upon her cable pillage cog crow's nest lateen sail.
-          Barbary Coast quarterdeck lass coffer keel hulk mizzen me square-rigged loot.
-        </p>
-        <p>
-          Yardarm starboard keelhaul list schooner prow booty cackle fruit gabion topmast. Plunder shrouds Nelsons folly
-          jack Arr parley warp grog blossom ballast pressgang. Knave crack Jennys tea cup flogging log man-of-war
-          hearties killick long clothes six pounders hulk.
-        </p>
+  <div class="container-fluid" id="background_dashboard">
+    <div class="row">
+      <div class="col-lg-12" style="height: 20em;"></div>
+      <div class="row">
+        
+        <div class="col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-image">
+                <img src="http://localhost:8000/images/laptop.jpg" class="cat-image">
+              </div>
+              <div class="card-content">
+                <h3>Laptops</h3>
+                <p class="m-t-20 m-p-20">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae, minima. Molestias vel reprehenderit rem mollitia provident! Nulla voluptatem vel deleniti ex in at maxime doloribus esse est, perspiciatis dolores quos?
+                </p>
+                <div class="d-flex">
+                  <div class="read">
+                    <router-link :to="{ path : '/productos/1' }">
+                      Ver más
+                    </router-link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-image">
+                <img src="http://localhost:8000/images/monitor.jpg" class="cat-image">
+              </div>
+              <div class="card-content">
+                <h3>Monitores</h3>
+                <p class="m-t-20 m-p-20">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae, minima. Molestias vel reprehenderit rem mollitia provident! Nulla voluptatem vel deleniti ex in at maxime doloribus esse est, perspiciatis dolores quos?
+                </p>
+                <div class="d-flex">
+                  <div class="read">
+                    <a href="">Ver más</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-image">
+                <img src="http://localhost:8000/images/hdd_ssd.jpg" class="cat-image">
+              </div>
+              <div class="card-content">
+                <h3>HDD/SSD</h3>
+                <p class="m-t-20 m-p-20">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae, minima. Molestias vel reprehenderit rem mollitia provident! Nulla voluptatem vel deleniti ex in at maxime doloribus esse est, perspiciatis dolores quos?
+                </p>
+                <div class="d-flex">
+                  <div class="read">
+                    <a href="">Ver más</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-image">
+                <img src="http://localhost:8000/images/ram.jpg" class="cat-image">
+              </div>
+              <div class="card-content">
+                <h3>Memorias RAM</h3>
+                <p class="m-t-20 m-p-20">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae, minima. Molestias vel reprehenderit rem mollitia provident! Nulla voluptatem vel deleniti ex in at maxime doloribus esse est, perspiciatis dolores quos?
+                </p>
+                <div class="d-flex">
+                  <div class="read">
+                    <a href="">Ver más</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
+
 </template>
+<script>
+  export default {
+   data() {
+     return {
+      //
+     }
+   } 
+  }
+</script>

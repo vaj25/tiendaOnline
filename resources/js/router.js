@@ -3,7 +3,8 @@ import VueRouter from 'vue-router'
 import Home from './components/pages/Home'
 import Register from './components/pages/Register'
 import Login from './components/pages/Login'
-import Dashboard from './components/pages/Dashboard'
+import Carrito from './components/pages/Carrito'
+import Productos from './components/pages/Productos'
 
 // Routes
 const routes = [
@@ -11,6 +12,14 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home,
+    meta: {
+      auth: undefined
+    }
+  },
+  {
+    path: '/productos/:id',
+    name: 'productos',
+    component: Productos,
     meta: {
       auth: undefined
     }
@@ -33,13 +42,14 @@ const routes = [
   },
   // USER ROUTES
   {
-    path: '/dashboard',
-    name: 'dashboard',
-    component: Dashboard,
+    path: '/carrito/productos/:user',
+    name: 'carrito',
+    component: Carrito,
+    props: true,
     meta: {
       auth: true
     }
-  },
+  }
 ]
 
 const router = new VueRouter({

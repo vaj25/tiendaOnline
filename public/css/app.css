@@ -10662,3 +10662,152 @@ a.text-dark:focus {
   }
 }
 
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/vendor/material-icons/iconMaterialIcons-Regular.eot?96c476804d7a788cc1c05351b287ee41);
+  /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(/fonts/vendor/material-icons/iconMaterialIcons-Regular.woff2?0509ab09c1b0d2200a4135803c91d6ce) format("woff2"), url(/fonts/vendor/material-icons/iconMaterialIcons-Regular.woff?29b882f018fa6fe75fd338aaae6235b8) format("woff"), url(/fonts/vendor/material-icons/iconMaterialIcons-Regular.ttf?d120c85b6eb0549d60483e2980033c15) format("truetype");
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  -webkit-font-feature-settings: "liga";
+          font-feature-settings: "liga";
+}
+
+.bd-navbar {
+  min-height: 4rem;
+  background-color: #6cb2eb;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 991.98px) {
+  .bd-navbar {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .bd-navbar .navbar-nav-scroll {
+    max-width: 100%;
+    height: 2.5rem;
+    margin-top: 0.25rem;
+    overflow: hidden;
+  }
+
+  .bd-navbar .navbar-nav-scroll .navbar-nav {
+    padding-bottom: 2rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (min-width: 768px) {
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+    .bd-navbar {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 1071;
+    }
+}
+}
+
+.bd-navbar .navbar-nav .nav-link {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  color: #000;
+}
+
+.bd-navbar .navbar-nav .nav-link.active,
+.bd-navbar .navbar-nav .nav-link:hover {
+  color: #fff;
+  background-color: transparent;
+}
+
+.bd-navbar .navbar-nav .nav-link.active {
+  font-weight: 600;
+}
+
+.bd-navbar .dropdown-menu {
+  font-size: 0.875rem;
+}
+
+.bd-navbar .dropdown-item.active {
+  font-weight: 600;
+  color: #212529;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23292b2c' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: 0.4rem 0.6rem;
+  background-size: 0.75rem 0.75rem;
+}
+
+#background_dashboard {
+  background-color: transparent;
+  background-image: url(/images/background_2.jpg?b5d761105e644e4156fe3a347b6d1880);
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.card_image {
+  position: relative;
+}
+
+.cat-image {
+  position: absolute;
+  width: 250px;
+  height: 150px;
+  top: -18em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.card-content {
+  margin-top: 125px;
+}
+
+.prod-image {
+  width: 250px;
+  height: 150px;
+  margin: auto;
+}
+
+.prod-content {
+  margin-top: 5px;
+}
+
+.input-cantidad {
+  text-align: center;
+}
+
+.carrito-image {
+  width: 100px;
+  height: 75px;
+  margin: auto;
+}
+

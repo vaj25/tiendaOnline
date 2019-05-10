@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 use App\Models\CarritoProducto;
+use App\Models\Producto;
 use App\Models\Carrito;
 
 class CarritoProductoController extends Controller
@@ -64,7 +66,6 @@ class CarritoProductoController extends Controller
         return response()->json(array('success' => true), 200);
       }
 
-      
     }
 
     /**
@@ -79,6 +80,11 @@ class CarritoProductoController extends Controller
                         ->where('estado_carrito', 1)->first();
 
       $carrito_producto = CarritoProducto::where('id_carrito', $carrito->id_carrito)->get();
+
+      $productos = collect();
+      foreach ($carrito_producto as $car_prod) {
+        $productos->add( Producto::where('id_producto', $car_prod->id_producto )->first() );
+      }
 
       return $carrito_producto;
     }

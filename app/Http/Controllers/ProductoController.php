@@ -47,7 +47,7 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-      return Producto::where('id_producto', $id)->get();
+      return Producto::where('id_producto', $id)->first();
     }
 
     /**
