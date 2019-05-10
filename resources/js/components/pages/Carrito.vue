@@ -30,16 +30,17 @@
               </thead>
               <tbody>
                 <productos 
-                  v-for="carrito_producto in carrito_productos" 
+                  v-for="(carrito_producto, index) in carrito_productos" 
                   :key="carrito_producto.id_carrito_producto" 
-                  :carrito_producto="carrito_producto">
+                  :carrito_producto="carrito_producto"
+                  @delete="deleteProducto(index)">
                 </productos>
               </tbody>
             </table>
           </div>
         </div>
         <div class="col-lg-4" >
-          <factura :carrito="carrito_productos[0].id_carrito">
+          <factura :carrito="carrito_productos[0].id_carrito" @comprar="delAllProductos()">
           </factura>
         </div>
         <div class="col-lg-1"></div>
@@ -65,7 +66,14 @@
     methods: {
       mostrarProductos() {
         axios.get('/carrito-productos/'+this.user).then(response => {
-          this.carrito_productos = response.data })
+          this.carrito_productos = response.data
+           })
+      },
+      deleteProducto(index) {
+        this.carrito_productos.splice(index, 1);
+      },
+      delAllProductos() {
+        this.carrito_productos.splice(0,this.carrito_productos.length)
       },
       getUser() {
         axios.get('/user').then(response => {

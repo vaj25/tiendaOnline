@@ -1,6 +1,15 @@
 <template>
   <div class="container">
     <div class="row">
+      <div class="col-lg-12">
+        <div class="d-flex justify-content-center">
+          <router-link :to="{ name : 'home' }" style="text-decoration: none;">
+            <h2>
+              TiendaOnline
+            </h2>
+          </router-link>
+        </div>
+      </div>
       <div class="col-lg-4"></div>
       <div class="col-lg-4">
         <div class="card">

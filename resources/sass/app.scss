@@ -12,68 +12,46 @@ $material-icons-font-path: '~material-icons/iconfont/';
 
 @import '~material-icons/iconfont/material-icons.scss';
 
-.bd-navbar {
-  min-height: 4rem;
-  background-color: #6cb2eb;
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .05), inset 0 -1px 0 rgba(0, 0, 0, .1);
-
-  @include media-breakpoint-down(md) {
-    padding-right: .5rem;
-    padding-left: .5rem;
-
-    .navbar-nav-scroll {
-      max-width: 100%;
-      height: 2.5rem;
-      margin-top: .25rem;
-      overflow: hidden;
-
-      .navbar-nav {
-        padding-bottom: 2rem;
-        overflow-x: auto;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
+.page-header{
+  overflow: hidden;
+  background: #444;
+  padding: 1em 0 0 ;
+  height: 4em;
+  transition:all .4s linear;
+  
+  .center-contents{
+    max-width: 90%;
+    margin:auto;
+    overflow: hidden;
+    
+    .logo{
+      max-width: 60px;
+      display: block;
+      float: left;
+      margin: 0 0 1em 1em;
     }
   }
+}
 
-  @include media-breakpoint-up(md) {
-    @supports (position: sticky) {
-      position: sticky;
-      top: 0;
-      z-index: 1071; // over everything in bootstrap
+.page-nav{
+  color: #fff;
+  float: right;
+  
+  ul, li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+ 
+    a{
+      color: #fff;
+      width: 100%;
+      height: auto;
+      display: block;
+      padding: 0.75em 1em;
+      text-decoration: none;
+      cursor: pointer;
     }
-  }
-
-  .navbar-nav {
-    .nav-link {
-      padding-right: .5rem;
-      padding-left: .5rem;
-      color: $black;
-
-      &.active,
-      &:hover {
-        color: $white;
-        background-color: transparent;
-      }
-
-      &.active {
-        font-weight: 600;
-      }
-    }
-  }
-
-  .dropdown-menu {
-    @include font-size(.875rem);
-  }
-
-  .dropdown-item.active {
-    font-weight: 600;
-    color: $gray-900;
-    background-color: transparent;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23292b2c' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: .4rem .6rem;
-    background-size: .75rem .75rem;
   }
 }
 
@@ -125,3 +103,12 @@ $material-icons-font-path: '~material-icons/iconfont/';
   height: 75px;
   margin: auto;
 }
+
+// @media only screen and (min-width:450px){  
+//   .page-nav {
+//     clear: left;
+//     position: relative;
+//     visibility: inherit;
+//     transition:visibility .4s linear;
+//   }
+// }

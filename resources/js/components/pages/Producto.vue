@@ -4,7 +4,7 @@
       <div class="card-body">
         <h4>{{ producto.nombre_producto }}</h4>
         <div class="">
-          <img src="http://localhost:8000/images/laptop.jpg" class="prod-image">
+          <img v-bind:src="'http://localhost:8000/images/articulos/' + producto.id_producto + '.jpg'" class="prod-image">
         </div>
         <div class="prod-content">
           <h5> $ {{ producto.precio_producto }} </h5>
@@ -57,7 +57,10 @@
             cantidad: this.cantidad
           }
         ).then(response => {
-          this.resp = response
+          this.$swal({
+            type: 'success', 
+            title: 'Tu artículo se agregó al carrito', 
+          });
         }).catch(e => {
           console.log(e)
         })

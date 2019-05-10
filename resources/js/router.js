@@ -20,6 +20,7 @@ const routes = [
     path: '/productos/:id',
     name: 'productos',
     component: Productos,
+    props: true,
     meta: {
       auth: undefined
     }

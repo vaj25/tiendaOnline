@@ -1,9 +1,9 @@
 <template>
   <tr v-if="show">
     <th scope="row">
-      <span v-on:click="deleteProducto()" class="material-icons" style="fontSize: 1empx; color: red;">clear</span> 
+      <span v-on:click="deleteProducto()" class="material-icons" style="fontSize: 1empx; color: red; cursor: pointer;">clear</span> 
     </th>
-    <td> <img src="http://localhost:8000/images/laptop.jpg" class="carrito-image"> </td>
+    <td> <img v-bind:src="'http://localhost:8000/images/articulos/' + producto.id_producto + '.jpg'" class="carrito-image"> </td>
     <td> {{ producto.descripcion_producto }} </td>
     <td> ${{ producto.precio_producto }} </td>
     <td> {{ carrito_producto.cantidad_carrito_producto }} </td>
@@ -42,7 +42,11 @@
       },
       deleteProducto() {
         axios.delete(`/carrito-productos/${this.carrito_producto.id_carrito_producto}`).then(() => {
-          this.show = false
+          this.$swal({
+            type: 'warning', 
+            title: 'Tu artículo se elimino del carrito', 
+          });
+          this.$emit('delete')
         });
       }
     },

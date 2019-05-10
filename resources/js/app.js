@@ -16,6 +16,7 @@ import auth from './auth'
 import router from './router'
 
 import TouchSpin from 'bootstrap-touchspin'
+import swal from 'vue-sweetalert2';
 
 window.Vue = require('vue');
 
@@ -27,6 +28,9 @@ Vue.use(VueRouter)
 Vue.use(VueAxios, axios)
 axios.defaults.baseURL = '/api'
 Vue.use(VueAuth, auth)
+
+// Set Vue Sweetalert
+Vue.use(swal);
 
 // Load Index
 Vue.component('index', Index);

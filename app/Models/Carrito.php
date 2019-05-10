@@ -8,6 +8,7 @@ class Carrito extends Model
 {
   public $table = "to_carrito";
 
+  protected $primaryKey = 'id_carrito';
   protected $fillable = [
     'estado_carrito'
   ];
@@ -20,5 +21,10 @@ class Carrito extends Model
   public function carritoPruductos()
   {
     return $this->hasMany(CarritoProducto::class);
+  }
+
+  public function factura()
+  {
+    return $this->belongsTo(Factura::class);
   }
 }

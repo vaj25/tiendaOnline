@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-    <header v-if="$route.name!='login' && $route.name!='register'" class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
+    <header v-if="$route.name!='login' && $route.name!='register'" class="page-header">
       <navigationMenu></navigationMenu>
     </header>
     <div id="content">

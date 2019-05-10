@@ -78,7 +78,14 @@ class CarritoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $carrito = Carrito::where('id_carrito', $id)->first();
+
+      $carrito->estado_carrito = 0;
+
+      if ($carrito->save()) {
+        return response()->json(array('success' => true), 200);
+      }
+
     }
 
     /**

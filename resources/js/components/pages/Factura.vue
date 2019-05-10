@@ -5,16 +5,16 @@
       <h4 class="card-title">Total</h4>
       <div class="d-flex">
         <div class="mr-auto p-2"><h5>Subtotal: </h5></div>
-        <div class="p-2">$700</div>
+        <div class="p-2">${{factura.subtotal}}</div>
       </div>
       <hr>
 
       <div class="d-flex">
         <div class="mr-auto p-2"><h5>Total: </h5></div>
-        <div class="p-2">$700</div>
+        <div class="p-2">${{factura.subtotal}}</div>
       </div>
       <div class="d-flex justify-content-center">
-        <a href="#" class="btn btn-success btn-lg">COMPRAR</a>
+        <a href="#" @click="addFactura" class="btn btn-success btn-lg">COMPRAR</a>
       </div>
     </div>
   </div>
@@ -25,21 +25,20 @@
     props: ['carrito'],
     data() {
       return {
-        producto: {
-          id_producto: '',
-          nombre_producto: '',
-          descripcion_producto: '',
-          precio_producto: ''
+        factura: {
+          carrito: 0,
+          total: 0,
+          subtotal: 0
         },
-        show: true
+        cliente: 0
       }
     },
     methods: {
-      getProducto() {
+      getFactura() {
         axios.get(
-          '/productos/'+this.carrito_producto.id_producto,
+          '/facturas/'+this.carrito,
         ).then(response => {
-          this.producto = response.data
+          this.factura = response.data
         }).catch(e => {
           console.log(e)
         })
@@ -49,14 +48,28 @@
           this.cliente = response.data.id
         })
       },
-      deleteProducto() {
-        axios.delete(`/carrito-productos/${this.carrito_producto.id_carrito_producto}`).then(() => {
-          this.show = false
-        });
+      addFactura() {
+        axios.post('/facturas/', this.factura).then(() => {
+          axios.put(`/carritos/${this.factura.carrito}`, 
+          {
+            id: this.factura.carrito
+          }).then(() => {
+            this.$swal({
+              type: 'success', 
+              title: 'Compra realizada con exito', 
+            })
+            this.$emit('comprar')
+          }).catch(e => {
+            console.log(e)
+          })
+        }).catch(e => {
+          console.log(e)
+        })
       }
     },
     created() {
-      this.getUser()
+      this.getUser(),
+      this.getFactura()
     },
     mounted() {      
       // 
